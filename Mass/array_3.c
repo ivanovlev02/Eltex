@@ -9,7 +9,6 @@ int main(void)
 	{
 		for(int j = 0; j < N; j++)
 		{
-			//if(((i == j) && (i + j < N)) || ((i < j) && (i + j < N)) || ((j < i) && (i + j < N)))
 			if((i + j < N) && ((i == j) || (i < j) || (j < i)))
 			{
 				arr[i][j] = 1;
