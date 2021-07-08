@@ -4,8 +4,6 @@ headers :=
 
 .PHONY := clean
 
-all: $(bin) clean
-
 $(bin): $(sources)
 		gcc $(sources) -o $(bin)
 
