@@ -23,6 +23,7 @@ int main(){
         perror("fork()");
         exit(EXIT_FAILURE);
     } else if(pidB == 0){
+        //printf("CHILD_B: %i, PARENT_A: %i\n", getpid(), getppid());
         if(pidC > 0){
             printf("CHILD_B: %i, PARENT_A: %i\n", getpid(), getppid());
             pidE = fork();
@@ -36,10 +37,11 @@ int main(){
         printf("CHILD_D: %i, PARENT_B: %i\n", getpid(), getppid());
         exit(status[1]);
     } else {
-        //wait(&status[1]);
-        //wait(&status[2]);
-        //wait(&status[3]);
-        //wait(&status[4]);
+        wait(&status[1]);
+        wait(&status[2]);
+        wait(&status[3]);
+        wait(&status[4]);
+        sleep(1);
         printf("PARENT: %i\n", getpid());
     }
     if(pidC == 0){
