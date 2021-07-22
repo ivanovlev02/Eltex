@@ -1,60 +1,56 @@
 #include <stdio.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <sys/wait.h>
+#include <sys/types.h>
 
-void pid_error(int pid){
-    if(-1 == pid){
+void pid_error(pid_t pid){
+    if(pid == -1){
         perror("fork()");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 }
 
-int main(int argc, char* argv[]){
-    pid_t pidB, pidC, pidD, pidE, pidF;
-    
-    printf("PARENT PID: %d\n", getpid());
+int main(){
 
-    pidB = fork();
-    pid_error(pidB);
-    if(pidB == 0){
-        sleep(1);
-        printf("CHILD_B id: %d PARENT_A id: %d\n", getpid(), getppid());
-        
-        pidD = fork();
-        pid_error(pidD);
-        if(pidD == 0){
-            sleep(1);
-            printf("CHILD_D id: %d PARENT_B id: %d\n", getpid(), getppid());
-        }
-        if(pidD > 0){
+    pid_t pidB = fork();
+    pid_t pidC, pidE, pidF;
+    int status[6];
+
+    pidC = fork();
+    if(pidB == -1){
+        perror("fork()");
+        exit(EXIT_FAILURE);
+    } else if(pidB == 0){
+        if(pidC > 0){
+            printf("CHILD_B: %i, PARENT_A: %i\n", getpid(), getppid());
             pidE = fork();
-            pid_error(pidE);
             if(pidE == 0){
-                sleep(1);
-                printf("CHILD_E id: %d PARENT_B id: %d\n", getpid(), getppid());
+                printf("CHILD_E: %i, PARENT_B: %i\n", getpid(), getppid());
+                exit(status[4]);
             }
+            exit(status[3]);
         }
+        wait(&status[2]);
+        printf("CHILD_D: %i, PARENT_B: %i\n", getpid(), getppid());
+        exit(status[1]);
+    } else {
+        //wait(&status[1]);
+        //wait(&status[2]);
+        //wait(&status[3]);
+        //wait(&status[4]);
+        printf("PARENT: %i\n", getpid());
     }
-    if(pidB > 0){
-        pidC = fork();
-        pid_error(pidC);
-        if(pidC == 0){
-            sleep(1);
-            printf("CHILD_C id: %d PARENT_A id: %d\n", getpid(), getppid());
-            pidF = fork();
-            pid_error(pidF);
-            if(pidF == 0){
-                sleep(1);
-                printf("CHILD_F id: %d PARENT_C id: %d\n", getpid(), getppid());
-            }
+    if(pidC == 0){
+        printf("CHILD_C: %i, PARENT_A: %i\n", getpid(), getppid());
+        pidF = fork();
+        if(pidF == 0){
+            printf("CHILD_F: %i, PARENT_C: %i\n", getpid(), getppid());
+            exit(status[5]);
         }
+        exit(status[2]);
     }
-        
-    for(int i = 0; i < 4; i++){
-        wait(NULL);
-    }
-
-    exit(0);
+       
+    exit(EXIT_SUCCESS);
 }
