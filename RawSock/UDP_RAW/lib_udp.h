@@ -17,8 +17,6 @@
 #define SIZE_BUFFER 1024
 #define SIZE_DGRAM (LEN_IP_HEAD + LEN_UDP_HEAD + SIZE_BUFFER)
 
-//struct sockaddr_in server,client;
-
 struct udp_head
 {
 	uint16_t source_port;
