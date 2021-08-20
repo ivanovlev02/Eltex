@@ -21,8 +21,8 @@
 
 struct udp_head
 {
-	u_short source_port;
-	u_short dest_port;
-	u_short length;
-	u_short checksum;
+	uint16_t source_port;
+	uint16_t dest_port;
+	uint16_t length;
+	uint16_t checksum;
 };
