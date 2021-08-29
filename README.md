@@ -23,4 +23,11 @@
 :two::one: IP-header, UDP-server, RAW-client - :heavy_check_mark:    
 :two::two: Eth-header, UDP-server, RAW-client - :heavy_check_mark:    
 :two::three: Build kernel - :heavy_check_mark:    
-:two::four: Kernel module - :x:    
+:two::four: Kernel module - :x:   
+    
+##Static library
+> gcc file1.c -c
+> gcc file2.c
+> ar rc **lib (bold)**myname.a file1.o file2.o
+> gcc test.c -o test -L. -lmyname
+> ./test
