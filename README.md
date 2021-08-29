@@ -39,7 +39,11 @@
 > gcc -c main.c    
 > gcc main.o -L. my_func -o main    
     
+## UDP Header
+![alt tag](https://2.bp.blogspot.com/-WEzVJxjLQNw/WRXYG7DhdQI/AAAAAAAAAVA/qmKBeplC1EQfIv5T9oxit8e79XDpD05SQCLcB/s1600/Screen%2BShot%2B2017-05-12%2Bat%2B9.09.56%2BPM.png)    
+## TCP Header
+![alt tag](https://2.bp.blogspot.com/-WEzVJxjLQNw/WRXYG7DhdQI/AAAAAAAAAVA/qmKBeplC1EQfIv5T9oxit8e79XDpD05SQCLcB/s1600/Screen%2BShot%2B2017-05-12%2Bat%2B9.09.56%2BPM.png)    
 ## IP Header
 ![alt tag](https://img.wonderhowto.com/img/99/78/63589085364482/0/hack-like-pro-networking-basics-for-aspiring-hacker-part-2-tcp-ip.w1456.jpg)    
-![alt tag](https://2.bp.blogspot.com/-WEzVJxjLQNw/WRXYG7DhdQI/AAAAAAAAAVA/qmKBeplC1EQfIv5T9oxit8e79XDpD05SQCLcB/s1600/Screen%2BShot%2B2017-05-12%2Bat%2B9.09.56%2BPM.png)    
-
+## Ethernet Header
+![alt tag](https://1.bp.blogspot.com/-4_335OfoWcg/WlgQ0DBQnqI/AAAAAAAABq8/nIJAtzo3vzYRTnbOwr_INFqJGprh9lXFQCLcBGAs/s1600/Ethernet%2B%2528DIX%2529%2Bframe%2B11111.png)
