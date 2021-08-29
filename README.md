@@ -9,7 +9,7 @@
 :seven: Calculator (dynamic lib) - :heavy_check_mark:    
 :eight: Calculator (plagin dlopen) - :heavy_check_mark:    
 :nine: File manager - :heavy_check_mark:    
-:ten: Text editor - :heavy_check_mark:    
+:keycap_ten: Text editor - :heavy_check_mark:    
 :one::one: Process management - :heavy_check_mark:    
 :one::two: Thread - :heavy_check_mark:    
 :one::three: Shop thread - :heavy_check_mark:    
