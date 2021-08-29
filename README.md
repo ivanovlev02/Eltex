@@ -39,6 +39,30 @@
 > gcc -c main.c    
 > gcc main.o -L. my_func -o main    
     
+##Build kernel ARM
+> apt-get update    
+> cd /usr/src/linux/    
+> ARCH=arm make menuconfig    
+> make ARCH=arm multi_v7_defconfig    
+> ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make zImage
+> qemu-system-arm -nographic -machine vexpress-a9 -k zImage
+> qemu-system-arm -nographic -machine vexpress-a9 -kernel zImage -dtb 
+vexpress-v2p-ca9.dtb -append "console=ttyS0"    
+>> vexpress-v2p-ca9.dtb --> /urs/src/linux/arch/arm/boot/dts    
+    
+## File system
+> QEMU_AUDIO_DRV=none qemu-sestem-arm -nographic -M vexpress-a9 -kernel zImage 
+initrdramfs.cpio.gz -dtb vexpress-v2p-ca9.dtb -append "console=ttyS0"
+    
+## BusyBox
+> cd busybox/    
+> make menuconfig    
+>> Settings->Cross compiler prefix->arm-linux-gnueabihf-
+> make defconfig    
+> cd _install    
+> make install    
+> find . | cpio -o -H newc | gzip > initramfs.cpio.gz    
+
 ## UDP Header
 ![alt tag](https://2.bp.blogspot.com/-WEzVJxjLQNw/WRXYG7DhdQI/AAAAAAAAAVA/qmKBeplC1EQfIv5T9oxit8e79XDpD05SQCLcB/s1600/Screen%2BShot%2B2017-05-12%2Bat%2B9.09.56%2BPM.png)    
 ## TCP Header
