@@ -58,6 +58,7 @@ initrdramfs.cpio.gz -dtb vexpress-v2p-ca9.dtb -append "console=ttyS0"
 > cd busybox/    
 > make menuconfig    
 >> Settings->Cross compiler prefix->arm-linux-gnueabihf-    
+    
 > make defconfig    
 > cd _install    
 > make install    
