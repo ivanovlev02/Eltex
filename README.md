@@ -40,4 +40,4 @@
 > gcc main.o -L. my_func -o main    
     
 ## IP Header
-![alt text]('IP Header.png')
+![alt tag](https://img.wonderhowto.com/img/99/78/63589085364482/0/hack-like-pro-networking-basics-for-aspiring-hacker-part-2-tcp-ip.w1456.jpg)
