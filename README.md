@@ -39,7 +39,7 @@
 > gcc -c main.c    
 > gcc main.o -L. my_func -o main    
     
-##Build kernel ARM
+## Build kernel ARM
 > apt-get update    
 > cd /usr/src/linux/    
 > ARCH=arm make menuconfig    
@@ -57,7 +57,7 @@ initrdramfs.cpio.gz -dtb vexpress-v2p-ca9.dtb -append "console=ttyS0"
 ## BusyBox
 > cd busybox/    
 > make menuconfig    
->> Settings->Cross compiler prefix->arm-linux-gnueabihf-
+>> Settings->Cross compiler prefix->arm-linux-gnueabihf-    
 > make defconfig    
 > cd _install    
 > make install    
