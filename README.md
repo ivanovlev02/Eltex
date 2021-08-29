@@ -52,7 +52,7 @@ vexpress-v2p-ca9.dtb -append "console=ttyS0"
     
 ## File system
 > QEMU_AUDIO_DRV=none qemu-sestem-arm -nographic -M vexpress-a9 -kernel zImage 
-initrdramfs.cpio.gz -dtb vexpress-v2p-ca9.dtb -append "console=ttyS0"
+initramfs.cpio.gz -dtb vexpress-v2p-ca9.dtb -append "console=ttyS0"
     
 ## BusyBox
 > cd busybox/    
@@ -63,6 +63,10 @@ initrdramfs.cpio.gz -dtb vexpress-v2p-ca9.dtb -append "console=ttyS0"
 > cd _install    
 > make install    
 > find . | cpio -o -H newc | gzip > initramfs.cpio.gz    
+
+## Test system
+> QEMU_AUDIO_DRV=none qemu-sestem-arm -nographic -M vexpress-a9 -kernel zImage 
+-initrd ./initramfs.cpio.gz -append "console=ttyS0 rdinit=/bin/ash"
 
 ## UDP Header
 ![alt tag](https://2.bp.blogspot.com/-WEzVJxjLQNw/WRXYG7DhdQI/AAAAAAAAAVA/qmKBeplC1EQfIv5T9oxit8e79XDpD05SQCLcB/s1600/Screen%2BShot%2B2017-05-12%2Bat%2B9.09.56%2BPM.png)    
