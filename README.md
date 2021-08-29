@@ -38,5 +38,8 @@
 > gcc -shared -o **lib (bold)**my_func.so file1.o file2.o    
 > gcc -c main.c    
 > gcc main.o -L. my_func -o main    
-
-
+    
+## IP Header
+| Ver/IHL | DS | Lengtn | Identification | Flags + Offset |
+|---------|:--:|:---------------:|:--------:|--------------------------:|
+|     TTL      | Transport proto | Checksum | Source IP | Destination IP|
