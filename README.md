@@ -41,5 +41,5 @@
     
 ## IP Header
 | Ver/IHL | DS | Lengtn | Identification | Flags + Offset |
-|---------|:--:|:---------------:|:--------:|--------------------------:|
+|-------------:|:---------------:|:--------:|--------------------------:|
 |     TTL      | Transport proto | Checksum | Source IP | Destination IP|
