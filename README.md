@@ -32,3 +32,11 @@
 > gcc test.c -o test -L. -lmyname    
 > ./test    
 
+## Dynamic library
+> gcc -fPIC -c file1.c    
+> gcc -fPIC -c file2.c    
+> gcc -shared -o **lib (bold)**my_func.so file1.o file2.o    
+> gcc -c main.c    
+> gcc main.o -L. my_func -o main    
+
+
